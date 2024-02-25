@@ -43,8 +43,8 @@ const App = () => {
     if (person === undefined) return
 
     if (window.confirm(`Delete ${person.name}?`)) {
-      personService.remove(id).then((removedPerson) => {
-        const updatedPersons = persons.filter(person => person.id != removedPerson.id)
+      personService.remove(id).then(() => {
+        const updatedPersons = persons.filter(p => p.id != person.id)
         setPersons(updatedPersons)
         setFilteredPersons(updatedPersons)
       })
